@@ -34,3 +34,10 @@ function dragAndDrop( event )
   end
   return false
 end
+
+function scaleInOut( obj, timeIn, timeOut, scaleIn, scaleOut)
+    local function _return( obj )
+      transition.to(obj, { time = timeOut, scaleX=scaleOut, scaleY=scaleOut } )
+    end
+    transition.to(obj, { time = timeIn, scaleX=scaleIn, scaleY=scaleIn, onComplete=_return } )
+end
